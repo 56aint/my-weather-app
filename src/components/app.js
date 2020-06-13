@@ -1,16 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const App = () => <h1>Hello World</h1>;
+const App = (props) => <h1>{`Hello ${props.name}`}</h1>;
 
-// The above utilises an implicit return, which is a feature of arrow-functions.
-// It is the same as this:
-// const App = () => {
-//  return <h1>Hello World</h1>;
-// }
-// or this:
-// function App() {
-//   return <h1>Hello World</h1>;   
-// }
+App.propTypes = {
+  name: PropTypes.string,
+};
+
+App.defaultProps ={
+  name: 'World',
+};
 
 
 export default App;
