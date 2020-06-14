@@ -1,27 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ForecastSummary = props => (
+const ForecastSummary = ({
+  date,
+  temperature,
+  description,
+  icon,
+  handleForecastSelect,
+}) => {
+  return (
+  <>
+    <div className="date" data-testid="date-id">
+      {date}
+    </div>
+    <div className="temperature" data-testid="temperature-id">
+      {temperature}&deg;c
+    </div>
+    <div className="description" data-testid="description-id">
+      {description}
+    </div>
+    <div className="icon" data-testid="icon-id">
+      {icon}
+    </div>
+    <button value={date} onClick={handleForecastSelect}>
+      More Details
+    </button>
+  </>
+  );
+};
+
+/*const ForecastSummary = props => (
 <div className='forcast-summary'>
   <div className="date">
     <span>{props.date}</span>
   </div>
   <div className="temperature">
-    <span>{props.temperature}</span>
+    <span>{props.temperature}&deg;c</span>
   </div>
-  <di className="description">
+  <div className="description">
     <span>{props.description}</span>
-  </di>
+  </div>
   <div className="icon">
     <span>{props.icon}</span>
   </div>
 </div>
-)
+)*/
 ForecastSummary.propTypes = {
-  date: PropTypes.number,
+  forecasts: PropTypes.shape({
+  date: PropTypes.string,
   temperature: PropTypes.number,
   description: PropTypes.string,
-  icon: PropTypes.symbol,
+  icon: PropTypes.string,
+})
 };
 
 
