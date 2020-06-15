@@ -24,7 +24,7 @@ const forecasts = [
 
 afterEach(cleanup);
 
-decsribe("ForecastSummaries", () => {
+describe("ForecastSummaries", () => {
   const forecasts = [
     {
       date: 123,
@@ -51,6 +51,6 @@ decsribe("ForecastSummaries", () => {
   });
   
   it("renders the correct amount of ForecastSummary props", () => {
-
+    
   });
 });
