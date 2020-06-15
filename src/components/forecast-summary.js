@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WeatherIcon from 'react-icons-weather';
 
 const ForecastSummary = (props) => (
   <div className='forcast-summary'>
@@ -15,10 +16,11 @@ const ForecastSummary = (props) => (
       <span className="description" data-testid="description-id"> {props.description}</span>
     </div>
 
-    <div> 
-      <span className="icon" data-testid="icon-id">{props.icon}</span>
+    <div className="icon" data-testid="icon-id">
+      <WeatherIcon name="owm" iconId="800" />
     </div>
-
+    {console.log(props.icon)}
+    {console.log(typeof props.icon)}
   </div>
 );
 
@@ -37,14 +39,23 @@ const ForecastSummary = (props) => (
     <span>{props.icon}</span>
   </div>
 </div>
-)*/
+)
+<div className="icon" data-testid="icon-id">
+  <WeatherIcon name="owm" iconId={props.icon} />
+</div>
+
+<div> 
+      <span className="icon" data-testid="icon-id">{props.icon}</span>
+    </div>
+  
+*/
+
+
 ForecastSummary.propTypes = {
-  forecasts: PropTypes.shape({
   date: PropTypes.string,
   temperature: PropTypes.number,
   description: PropTypes.string,
   icon: PropTypes.string,
-})
 };
 
 

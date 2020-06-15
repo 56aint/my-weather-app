@@ -29,7 +29,7 @@ describe("ForecastSummaries", () => {
     {
       date: 123,
       description: 'date',
-      icon: 'icon1',
+      icon: '200',
       temperature: {
         max: 999,
       }
@@ -37,7 +37,7 @@ describe("ForecastSummaries", () => {
     {
       date: 456,
       description: 'date2',
-      icon: 'icon2',
+      icon: '800',
       temperature: {
         max: 777,
       },
