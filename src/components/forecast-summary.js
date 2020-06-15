@@ -1,33 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ForecastSummary = ({
-  date,
-  temperature,
-  description,
-  icon,
-  handleForecastSelect,
-}) => {
-  return (
-  <>
-    <div className="date" data-testid="date-id">
-      {date}
+const ForecastSummary = (props) => (
+  <div className='forcast-summary'>
+    <div>
+      <span  className="date" data-testid="date-id">{props.date}</span>
     </div>
-    <div className="temperature" data-testid="temperature-id">
-      {temperature}&deg;c
+
+    <div>
+      <span className="temperature" data-testid="temperature-id">{props.temperature}&deg;c</span>
     </div>
-    <div className="description" data-testid="description-id">
-      {description}
+
+    <div> 
+      <span className="description" data-testid="description-id"> {props.description}</span>
     </div>
-    <div className="icon" data-testid="icon-id">
-      {icon}
+
+    <div> 
+      <span className="icon" data-testid="icon-id">{props.icon}</span>
     </div>
-    <button value={date} onClick={handleForecastSelect}>
-      More Details
-    </button>
-  </>
-  );
-};
+
+  </div>
+);
 
 /*const ForecastSummary = props => (
 <div className='forcast-summary'>
