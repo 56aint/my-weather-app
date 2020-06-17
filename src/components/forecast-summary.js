@@ -8,10 +8,11 @@ const ForecastSummary = ({
   temperature,
   description,
   icon,
+  onSelect,
   handleForecastSelect,
 }) => {
   return (
-  <div className='forcast-summary'>
+  <div className='forecast-summary'>
     <div className="date" data-testid="date-id">
       <span>{moment({date}).format('ddd Do MMM')}</span>
     </div>
@@ -31,31 +32,11 @@ const ForecastSummary = ({
     {console.log(icon)}
     {console.log(typeof icon)}
 
-    <button value={date} onClick={handleForecastSelect}>More Details</button>
-
+    <button  onClick={() => onSelect(date)}>More details</button>
 
   </div>
 )
 };
-
-/*
-const ForecastSummary = props => (
-<div className='forcast-summary'>
-  <div className="date">
-    <span>{props.date}</span>
-  </div>
-  <div className="temperature">
-    <span>{props.temperature}&deg;c</span>
-  </div>
-  <div className="description">
-    <span>{props.description}</span>
-  </div>
-  <div className="icon">
-    <span>{props.icon}</span>
-  </div>
-</div>
-) 
-*/
 
 
 ForecastSummary.propTypes = {
@@ -64,6 +45,7 @@ ForecastSummary.propTypes = {
     temperature: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
+    onSelect: PropTypes.func,
 }),
 };
 
