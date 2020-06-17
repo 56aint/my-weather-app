@@ -3,30 +3,43 @@ import PropTypes from 'prop-types';
 import WeatherIcon from 'react-icons-weather';
 import moment from 'moment';
 
-const ForecastSummary = (props) => (
+const ForecastSummary = ({
+  date,
+  temperature,
+  description,
+  icon,
+  handleForecastSelect,
+}) => {
+  return (
   <div className='forcast-summary'>
     <div className="date" data-testid="date-id">
-      <span>{moment(props.date).format('ddd Do MMM')}</span>
+      <span>{moment({date}).format('ddd Do MMM')}</span>
     </div>
     
 
     <div>
-      <span className="temperature" data-testid="temperature-id">{props.temperature}&deg;c</span>
+      <span className="temperature" data-testid="temperature-id">{temperature}&deg;c</span>
     </div>
 
     <div> 
-      <span className="description" data-testid="description-id"> {props.description}</span>
+      <span className="description" data-testid="description-id"> {description}</span>
     </div>
 
     <div className="icon" data-testid="icon-id">
-      <WeatherIcon name="owm" iconId={props.icon} />
+      <WeatherIcon name="owm" iconId={icon} />
     </div>
-    {console.log(props.icon)}
-    {console.log(typeof props.icon)}
-  </div>
-);
+    {console.log(icon)}
+    {console.log(typeof icon)}
 
-/*const ForecastSummary = props => (
+    <button value={date} onClick={handleForecastSelect}>More Details</button>
+
+
+  </div>
+)
+};
+
+/*
+const ForecastSummary = props => (
 <div className='forcast-summary'>
   <div className="date">
     <span>{props.date}</span>
@@ -41,21 +54,13 @@ const ForecastSummary = (props) => (
     <span>{props.icon}</span>
   </div>
 </div>
-)
-<div className="icon" data-testid="icon-id">
-  <WeatherIcon name="owm" iconId={props.icon} />
-</div>
-
-<div> 
-      <span className="icon" data-testid="icon-id">{props.icon}</span>
-    </div>
-  
+) 
 */
 
 
 ForecastSummary.propTypes = {
   forecast: PropTypes.shape({
-    date: PropTypes.instanceOf(Date),
+    date: PropTypes.instanceOf(Date).isRequired,
     temperature: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
