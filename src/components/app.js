@@ -4,6 +4,7 @@ import LocationDetails from './location-details';
 import ForecastSummaries from './forecast-summaries';
 import ForecastDetails from './forecast-details';
 import axios from 'axios';
+import SearchForm from './search-form';
 
 import '../styles/app.css';
 
@@ -19,6 +20,8 @@ const App = () =>   {
   });
 
   const selectedForecast = forecasts.find(forecast => forecast.date === selectedDate);
+
+  const [searchText, setSearchText] = useState('');
   
   const handleForecastSelect = (date) => {
     setSelectedDate(Date);
@@ -31,8 +34,17 @@ const App = () =>   {
       setForecasts(response.data.forecasts);
       setLocation(response.data.location);   
     }) 
-    
-  });
+  }, []);
+
+  const doCitySearch = (city) => {
+    const request = city.toLowerCase();
+
+    axios.get(`https://mcr-codes-weather.herokuapp.com/forecast?city=${request}`)
+    .then((response) => {
+      setForecasts(response.data.forcasts);
+      setLocation(response.data.location);
+    });
+  };
 
   return (
 
@@ -43,6 +55,8 @@ const App = () =>   {
     city={location.city}
     country={location.country}
     />
+
+    <SearchForm onCitySearch={doCitySearch}/>
   
     <ForecastSummaries 
     forecasts={forecasts}
