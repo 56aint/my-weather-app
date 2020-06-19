@@ -1,26 +1,6 @@
 import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 import ForecastSummaries from '../../components/forecast-summaries';
-// import forecast from '../../data/forecast.json';
-
-/*const forecasts = [
-  {
-    date: 123,
-    description: 'date',
-    icon: 'icon1',
-    temperature: {
-      max: 999,
-    },
-  },
-  {
-    date: 456,
-    description: 'date2',
-    icon: 'icon2',
-    temperature: {
-      max: 777,
-    },
-  }
-];*/
 
 afterEach(cleanup);
 

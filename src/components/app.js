@@ -73,7 +73,7 @@ const App = () =>   {
       />
   
       {
-        selectedForecast && (<ForecastDetails forecast={selectedForecast} />)
+        selectedForecast && (<ForecastDetails forecasts={selectedForecast} />)
       }
   
     </div>
