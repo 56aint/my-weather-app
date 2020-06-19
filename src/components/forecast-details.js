@@ -2,33 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const ForecastDetails = ({
-  date,
-  temperatureMin,
-  temperatureMax,
-  humidity,
-  wind,
-}) => {
-  return (
+const ForecastDetails = (props) => {
+return(
   <div className="forcast-details">
+
     <div className="date" data-testid="date-id">
-      <span>{moment({date}).format('ddd Do MMM')}</span>
+      <span>{moment(props.forecast.date).format('ddd Do MMM')}</span>
     </div>
 
-    <div>
-      <span className="tempMin" data-testid="tempMin-id">{temperatureMin}&deg;c</span>
+    <div className="tempMin" data-testid="tempMin-id">
+      <span>Min Temperature: {props.forecast.temperature.min}&deg;c</span>
     </div>
 
-    <div>
-      <span className="tempMax" data-testid="tempMax-id">{temperatureMax}&deg;c</span>
+    <div className="tempMax" data-testid="tempMax-id">
+      <span>Max Temperature: {props.forecast.temperature.min}&deg;c</span>
+    </div>
+    
+    <div className="humidity" data-testid="humidity-id">
+      <span>Humidity: {props.forecast.humidity}%</span>
     </div>
 
-    <div>
-      <span className="humidity" data-testid="humidity-id"> {humidity}</span>
-    </div>
-
-    <div>
-      <span className="wind" data-testid="wind-id"> {wind}</span>
+    <div className="wind" data-testid="wind-id">
+      <span>Wind: {props.forecast.wind.speed}mph</span>
     </div>
 
   </div>

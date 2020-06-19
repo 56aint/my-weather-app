@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 
 const SearchForm = (props) => {
@@ -8,7 +8,7 @@ const SearchForm = (props) => {
   
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
-    console.log('event.target.value')
+    // console.log('event.target.value')
   };
 
   return (
