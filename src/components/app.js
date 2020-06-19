@@ -20,6 +20,8 @@ const App = () =>   {
     country: "",
   });
 
+  const [load, setLoad] = useState(false);
+
   const selectedForecast = forecasts.find(forecast => forecast.date === selectedDate);
 
   const handleForecastSelect = (date) => {
@@ -33,7 +35,8 @@ const App = () =>   {
     .get("https://mcr-codes-weather.herokuapp.com/forecast/")
     .then((response) => {
       setForecasts(response.data.forecasts);
-      setLocation(response.data.location);   
+      setLocation(response.data.location); 
+      setLoad(true);  
     }) 
   }, []);
 
@@ -44,36 +47,45 @@ const App = () =>   {
     .then((response) => {
       setForecasts(response.data.forecasts);
       setLocation(response.data.location);
-    });
+    })
+    .catch((err) => {
+      alert('Your searched City is not available');
+      setLoad(false);
+    }, []);
   };
+  // 
+  if (load) {
+    return (
+      <div className="forecast">
+  
+  
+      <LocationDetails
+      city={location.city}
+      country={location.country}
+      />
+  
+      <SearchForm onCitySearch={doCitySearch}
+      />
+    
+      <ForecastSummaries 
+      forecasts={forecasts}
+      onForecastSelect={handleForecastSelect}
+      />
+  
+      {
+        selectedForecast && (<ForecastDetails forecast={selectedForecast} />)
+      }
+  
+    </div>
+    );
+  } else {
+    return <div className="loading">please refresh the browser...</div>   
+  }
+};
 
   
 
-  return (
-
-    <div className="forecast">
-
-
-    <LocationDetails
-    city={location.city}
-    country={location.country}
-    />
-
-    <SearchForm onCitySearch={doCitySearch}
-    />
   
-    <ForecastSummaries 
-    forecasts={forecasts}
-    onForecastSelect={handleForecastSelect}
-    />
-
-    {
-      selectedForecast && (<ForecastDetails forecast={selectedForecast} />)
-    }
-
-  </div>
-  );
-}
 
 
 

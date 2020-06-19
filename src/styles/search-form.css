@@ -1,0 +1,21 @@
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-input {
+  font-size: 1.5rem;
+  height: 20px;
+  width: 250px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 5px 5px 10px;
+  border-bottom: 1px solid
+}
+.search-button {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+
+  border-radius: 5px;
+}
