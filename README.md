@@ -1,7 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is my little weather-app created with React.
 
-## Available Scripts
+## To Interact with this project
 
+Create a new directory on your computer `mkdir 'your folder name'`
+```bash
+fork the repo
+git clone git clone git@github.com:56aint/my-weather-app.git your-project-folder-name
+cd your-project-folder-name
+npm install
+
+Visit [http://localhost:3000/] in your browser and you should see the weather-app live!.
+```
+ 
+###More Info
 In the project directory, you can run:
 
 ### `npm start`
