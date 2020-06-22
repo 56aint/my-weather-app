@@ -78,7 +78,7 @@ const App = () =>   {
     </div>
     );
   } else {
-    return <div className="loading">please refresh the browser...</div>   
+    return <div className="loading">please wait ...refresh the browser after 10sec...</div>   
   }
 };
 
