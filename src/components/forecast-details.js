@@ -38,7 +38,7 @@ return(
 
 ForecastDetails.prototype ={
   forecast: PropTypes.shape({
-    date: PropTypes.object.isRequired,
+    date: PropTypes.instanceOf(Date).isRequired,
     temperature: PropTypes.string.isRequired,
     humidity: PropTypes.string.isRequired,
     wind: PropTypes.string.isRequired,
