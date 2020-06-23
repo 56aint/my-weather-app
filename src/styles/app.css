@@ -1,0 +1,17 @@
+body {
+  background-image: url("my-weather-wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+@media screen and (max-width: 699x) {
+  body {
+    background-image: url("my-weather-wallpaper-mobile.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+  }
+}
+.forecast {
+  margin: 0 20px;
+}
